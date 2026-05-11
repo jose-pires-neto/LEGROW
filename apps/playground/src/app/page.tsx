@@ -1,85 +1,96 @@
 "use client";
 
-import { Header, Hero, Features, Pricing, Testimonials, Footer } from "legrow";
-import { ThemeToggle } from "@/components/ThemeToggle"; // We'll create this or ignore for now
+import Link from "next/link";
+import { HeaderMinimal, FooterMinimal } from "legrow";
+import { Blocks, Zap, Palette, ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="min-h-screen relative font-sans text-gray-900 dark:text-gray-100 bg-white dark:bg-[#0a0a0a] overflow-hidden">
-      {/* Gradients de Fundo (Decoração) */}
-      <div className="absolute top-0 left-0 w-full h-[600px] bg-gradient-to-b from-legrow-50/50 to-transparent dark:from-legrow-950/20 -z-10" />
+    <main className="min-h-screen font-sans text-gray-900 dark:text-gray-100 bg-white dark:bg-[#0a0a0a] overflow-hidden flex flex-col">
+      {/* Gradients de Fundo */}
+      <div className="absolute top-0 left-0 w-full h-[600px] bg-gradient-to-b from-accent/10 to-transparent dark:from-accent/5 -z-10" />
 
-      <Header variant="glass" />
-
-      <div className="pt-24 pb-20">
-        <Hero
-          variant="startup"
-          title="LEGROW Framework"
-          subtitle="A biblioteca definitiva para construir landing pages premium em minutos no React."
-          primaryButton={
-            <a href="#install" className="px-8 py-4 text-base font-medium text-white bg-accent rounded-full hover:bg-accent-hover transition-colors shadow-lg shadow-accent/25">
-              Começar Agora
-            </a>
-          }
-          secondaryButton={
-            <a href="https://github.com/jose-pires-neto/LEGROW" target="_blank" rel="noreferrer" className="px-8 py-4 text-base font-medium text-gray-900 bg-gray-100 rounded-full hover:bg-gray-200 dark:text-white dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors">
-              Ver no GitHub
-            </a>
-          }
-        />
-
-        <div id="install" className="max-w-4xl mx-auto px-6 mb-20 space-y-8">
-          <div className="bg-gray-50 dark:bg-gray-900 p-8 rounded-3xl border border-gray-100 dark:border-gray-800">
-            <h3 className="text-2xl font-bold font-heading mb-4">1. Instalação</h3>
-            <p className="text-gray-600 dark:text-gray-400 mb-4">Instale o pacote principal e suas dependências diretamente via NPM.</p>
-            <pre className="bg-gray-950 text-gray-300 p-4 rounded-xl overflow-x-auto">
-              <code>npm install legrow framer-motion lucide-react</code>
-            </pre>
+      <HeaderMinimal 
+        logo={
+          <div className="flex items-center gap-2">
+            <Blocks className="w-6 h-6 text-accent" />
+            <span className="text-xl font-bold font-heading tracking-tight">LEGROW</span>
           </div>
+        }
+        links={[
+          { label: "Catálogo", href: "/components/heroes" },
+          { label: "Documentação", href: "https://github.com/jose-pires-neto/LEGROW" },
+          { label: "Github", href: "https://github.com/jose-pires-neto/LEGROW" },
+        ]}
+        action={
+          <Link href="/components/heroes" className="px-5 py-2.5 text-sm font-bold text-white bg-accent rounded-full hover:bg-accent-hover transition-colors shadow-sm">
+            Ver Componentes
+          </Link>
+        }
+      />
 
-          <div className="bg-gray-50 dark:bg-gray-900 p-8 rounded-3xl border border-gray-100 dark:border-gray-800">
-            <h3 className="text-2xl font-bold font-heading mb-4">2. Como Usar</h3>
-            <p className="text-gray-600 dark:text-gray-400 mb-4">Importe as seções desejadas e utilize o sistema de variantes para alterar os estilos instantaneamente.</p>
-            <pre className="bg-gray-950 text-gray-300 p-4 rounded-xl overflow-x-auto">
-              <code>{`import { Header, Hero, Features, Pricing } from "legrow";
-
-export default function App() {
-  return (
-    <main>
-      <Header variant="glass" />
-      <Hero variant="startup" title="Meu Site Rápido" />
-      <Features variant="grid" />
-      <Pricing variant="modern" />
-    </main>
-  );
-}`}</code>
-            </pre>
-          </div>
+      <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-24 md:py-32">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium mb-8">
+          <Zap className="w-4 h-4" />
+          <span>O Marketplace de Componentes Definitivo</span>
         </div>
-
-        <Features variant="grid" />
-
-        <Hero
-          variant="saas"
-          title="Tudo em um só lugar"
-          subtitle="Gerencie seus componentes, temas e layouts de forma visual ou via código."
-        >
-          <div className="mt-8 p-6 bg-accent/10 border border-accent/20 rounded-2xl flex flex-col items-center justify-center text-center">
-            <h4 className="text-xl font-bold font-heading text-accent mb-2">⭐ Novidade: Suporte a Children!</h4>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              Esta caixa azul foi injetada customizadamente pelo usuário dentro do componente Hero SaaS através da prop <code>children</code> recém adicionada.
-            </p>
-          </div>
-        </Hero>
-
-        <Features variant="cards" />
-
-        <Testimonials variant="carousel" />
-
-        <Pricing variant="modern" />
+        
+        <h1 className="text-5xl md:text-7xl font-bold font-heading tracking-tight leading-[1.1] max-w-4xl mx-auto mb-8">
+          Construa landing pages <br className="hidden md:block" />
+          em <span className="text-accent">minutos</span>, não dias.
+        </h1>
+        
+        <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12">
+          O LEGROW é um catálogo de componentes React/Next.js de altíssimo nível. 
+          Copie, cole e adapte blocos pré-construídos com design premium para o seu projeto instantaneamente.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row items-center gap-4">
+          <Link 
+            href="/components/heroes" 
+            className="flex items-center gap-2 px-8 py-4 text-lg font-bold text-white bg-gray-900 dark:bg-white dark:text-gray-900 rounded-full hover:scale-105 transition-transform shadow-xl"
+          >
+            Explorar Catálogo
+            <ArrowRight className="w-5 h-5" />
+          </Link>
+          <a 
+            href="https://github.com/jose-pires-neto/LEGROW"
+            target="_blank"
+            rel="noreferrer"
+            className="px-8 py-4 text-lg font-bold text-gray-900 bg-gray-100 rounded-full hover:bg-gray-200 dark:text-white dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors"
+          >
+            Código Fonte
+          </a>
+        </div>
       </div>
 
-      <Footer variant="minimal" />
+      <div className="max-w-6xl mx-auto px-6 py-24 grid grid-cols-1 md:grid-cols-3 gap-12 w-full">
+        <div className="space-y-4">
+          <div className="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400">
+            <Blocks className="w-6 h-6" />
+          </div>
+          <h3 className="text-2xl font-bold font-heading">Blocos Modulares</h3>
+          <p className="text-gray-600 dark:text-gray-400">Não lute com layouts complexos. Cada componente foi pensado como uma seção inteira da sua página.</p>
+        </div>
+        
+        <div className="space-y-4">
+          <div className="w-12 h-12 rounded-xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 dark:text-purple-400">
+            <Palette className="w-6 h-6" />
+          </div>
+          <h3 className="text-2xl font-bold font-heading">Design Premium</h3>
+          <p className="text-gray-600 dark:text-gray-400">Estilos baseados nas melhores práticas de SaaS e Startups. Espaçamentos, sombras e tipografia perfeitos.</p>
+        </div>
+        
+        <div className="space-y-4">
+          <div className="w-12 h-12 rounded-xl bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400">
+            <Zap className="w-6 h-6" />
+          </div>
+          <h3 className="text-2xl font-bold font-heading">Developer Experience</h3>
+          <p className="text-gray-600 dark:text-gray-400">Copie o código limpo, em TypeScript, com Tailwind CSS nativo, sem bibliotecas pesadas e desnecessárias.</p>
+        </div>
+      </div>
+
+      <FooterMinimal />
     </main>
   );
 }
