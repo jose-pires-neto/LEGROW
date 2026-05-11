@@ -30,8 +30,17 @@ jobs:
       - name: Install dependencies
         run: npm ci || npm install --legacy-peer-deps
         
-      - name: Build packages
-        run: npm run build
+      - name: Build Core packages
+        run: |
+          npm run build -w @legrow/core
+          npm run build -w @legrow/animations
+          npm run build -w @legrow/themes
+          
+      - name: Build Sections package
+        run: npm run build -w @legrow/sections
+        
+      - name: Build Legrow package
+        run: npm run build -w legrow
         
       - name: Build Playground (Docs)
         run: npm run build -w playground
