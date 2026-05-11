@@ -105,12 +105,9 @@ O repositório oficial é construído em formato **Monorepo** (NPM Workspaces). 
 - `packages/legrow`: O empacotador final. Esse é o pacote que vai pro NPM para os usuários.
 - `apps/playground`: Aplicação Next.js feita exclusivamente para **testar e servir de Site de Documentação**.
 
-### Rodando o ambiente de desenvolvimento
-Se você clonou o repositório do Github e quer ajudar a criar novos componentes:
-
-1. Na raiz, rode `npm install`.
-2. Em seguida, rode `npm run dev`.
-3. Acesse `http://localhost:3000` para ver o Playground em tempo real e testar as mudanças.
+### Como criar novos Componentes e Abrir PRs?
+Deseja contribuir com a comunidade e publicar seus próprios blocos e templates no nosso Marketplace? 
+👉 **Leia nosso [Guia Completo de Contribuição (CONTRIBUTING.md)](CONTRIBUTING.md)** para o passo a passo de como estruturar, plugar e documentar seu código!
 
 ---
 
