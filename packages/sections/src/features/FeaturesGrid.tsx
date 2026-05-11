@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "@legrow/core";
+import { cn, BaseSectionProps } from "@legrow/core";
 import { motion } from "framer-motion";
 import { slideUpVariants, staggerContainer } from "@legrow/animations";
 import { CheckCircle2 } from "lucide-react";
@@ -10,11 +10,10 @@ export interface Feature {
   icon?: React.ReactNode;
 }
 
-export interface FeaturesGridProps {
+export interface FeaturesGridProps extends BaseSectionProps {
   title?: React.ReactNode;
   subtitle?: React.ReactNode;
   features?: Feature[];
-  className?: string;
 }
 
 const defaultFeatures: Feature[] = [
@@ -30,7 +29,8 @@ export function FeaturesGrid({
   title = "Tudo que você precisa",
   subtitle = "Recursos construídos para escalar seu produto.",
   features = defaultFeatures,
-  className
+  className,
+  children
 }: FeaturesGridProps) {
   return (
     <section className={cn("w-full py-section-md px-6 md:px-12 max-w-7xl mx-auto", className)}>
@@ -58,6 +58,7 @@ export function FeaturesGrid({
           </motion.div>
         ))}
       </motion.div>
+      {children}
     </section>
   );
 }

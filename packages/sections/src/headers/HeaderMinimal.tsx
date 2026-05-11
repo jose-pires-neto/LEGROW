@@ -1,12 +1,11 @@
 import React from "react";
-import { cn } from "@legrow/core";
+import { cn, BaseSectionProps } from "@legrow/core";
 import { motion } from "framer-motion";
 
-export interface HeaderMinimalProps {
+export interface HeaderMinimalProps extends BaseSectionProps {
   logo?: React.ReactNode;
   links?: { label: string; href: string }[];
   action?: React.ReactNode;
-  className?: string;
 }
 
 export function HeaderMinimal({
@@ -17,7 +16,8 @@ export function HeaderMinimal({
     { label: "About", href: "#" },
   ],
   action = <button className="px-4 py-2 text-sm font-medium text-white bg-accent rounded-md hover:bg-accent-hover transition-colors">Get Started</button>,
-  className
+  className,
+  children
 }: HeaderMinimalProps) {
   return (
     <motion.header 
@@ -38,6 +38,7 @@ export function HeaderMinimal({
       <div className="flex items-center gap-4">
         {action}
       </div>
+      {children}
     </motion.header>
   );
 }

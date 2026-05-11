@@ -1,12 +1,11 @@
 import React from "react";
-import { cn } from "@legrow/core";
+import { cn, BaseSectionProps } from "@legrow/core";
 import { motion } from "framer-motion";
 
-export interface HeaderGlassProps {
+export interface HeaderGlassProps extends BaseSectionProps {
   logo?: React.ReactNode;
   links?: { label: string; href: string }[];
   action?: React.ReactNode;
-  className?: string;
 }
 
 export function HeaderGlass({
@@ -17,7 +16,8 @@ export function HeaderGlass({
     { label: "About", href: "#" },
   ],
   action = <button className="px-4 py-2 text-sm font-medium text-white bg-gray-900 dark:bg-white dark:text-gray-900 rounded-full hover:opacity-90 transition-opacity">Get Started</button>,
-  className
+  className,
+  children
 }: HeaderGlassProps) {
   return (
     <div className="w-full fixed top-4 left-0 z-50 px-4 md:px-8 flex justify-center">
@@ -44,6 +44,7 @@ export function HeaderGlass({
         <div className="flex items-center gap-4">
           {action}
         </div>
+        {children}
       </motion.header>
     </div>
   );

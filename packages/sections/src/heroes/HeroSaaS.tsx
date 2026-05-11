@@ -1,15 +1,14 @@
 import React from "react";
-import { cn } from "@legrow/core";
+import { cn, BaseSectionProps } from "@legrow/core";
 import { motion } from "framer-motion";
 import { slideUpVariants, staggerContainer } from "@legrow/animations";
 
-export interface HeroSaaSProps {
+export interface HeroSaaSProps extends BaseSectionProps {
   badge?: string;
   title?: React.ReactNode;
   subtitle?: React.ReactNode;
   primaryButton?: React.ReactNode;
   image?: React.ReactNode;
-  className?: string;
 }
 
 export function HeroSaaS({
@@ -18,7 +17,8 @@ export function HeroSaaS({
   subtitle = "Tudo que você precisa para criar, gerenciar e escalar seus projetos digitais em um único lugar.",
   primaryButton = "Começar Gratuitamente",
   image = <div className="w-full h-[400px] md:h-[500px] bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 shadow-premium flex items-center justify-center text-gray-400">Dashboard Preview</div>,
-  className
+  className,
+  children
 }: HeroSaaSProps) {
   return (
     <section className={cn(
@@ -60,6 +60,7 @@ export function HeroSaaS({
             </button>
           ) : primaryButton}
         </motion.div>
+        {children}
       </motion.div>
       
       <motion.div 

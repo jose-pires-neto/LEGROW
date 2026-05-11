@@ -1,15 +1,14 @@
 import React from "react";
-import { cn } from "@legrow/core";
+import { cn, BaseSectionProps } from "@legrow/core";
 import { motion } from "framer-motion";
 import { slideUpVariants, staggerContainer } from "@legrow/animations";
 
-export interface HeroStartupProps {
+export interface HeroStartupProps extends BaseSectionProps {
   title?: React.ReactNode;
   subtitle?: React.ReactNode;
   primaryButton?: React.ReactNode;
   secondaryButton?: React.ReactNode;
   align?: "left" | "center";
-  className?: string;
 }
 
 export function HeroStartup({
@@ -18,7 +17,8 @@ export function HeroStartup({
   primaryButton = "Começar Agora",
   secondaryButton = "Ver GitHub",
   align = "center",
-  className
+  className,
+  children
 }: HeroStartupProps) {
   return (
     <section className={cn(
@@ -62,6 +62,7 @@ export function HeroStartup({
             </button>
           ) : secondaryButton}
         </motion.div>
+        {children}
       </motion.div>
     </section>
   );

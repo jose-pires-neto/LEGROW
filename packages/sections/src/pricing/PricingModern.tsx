@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "@legrow/core";
+import { cn, BaseSectionProps } from "@legrow/core";
 import { motion } from "framer-motion";
 import { slideUpVariants, staggerContainer } from "@legrow/animations";
 import { Check } from "lucide-react";
@@ -13,11 +13,10 @@ export interface PricingPlan {
   buttonText?: string;
 }
 
-export interface PricingModernProps {
+export interface PricingModernProps extends BaseSectionProps {
   title?: React.ReactNode;
   subtitle?: React.ReactNode;
   plans?: PricingPlan[];
-  className?: string;
 }
 
 const defaultPlans: PricingPlan[] = [
@@ -49,7 +48,8 @@ export function PricingModern({
   title = "Preços simples e transparentes",
   subtitle = "Escolha o plano perfeito para sua necessidade.",
   plans = defaultPlans,
-  className
+  className,
+  children
 }: PricingModernProps) {
   return (
     <section className={cn("w-full py-section-md px-6 md:px-12 max-w-7xl mx-auto", className)}>
@@ -116,6 +116,7 @@ export function PricingModern({
           </motion.div>
         ))}
       </motion.div>
+      {children}
     </section>
   );
 }

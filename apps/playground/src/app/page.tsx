@@ -63,7 +63,14 @@ export default function App() {
           variant="saas"
           title="Tudo em um só lugar"
           subtitle="Gerencie seus componentes, temas e layouts de forma visual ou via código."
-        />
+        >
+          <div className="mt-8 p-6 bg-accent/10 border border-accent/20 rounded-2xl flex flex-col items-center justify-center text-center">
+            <h4 className="text-xl font-bold font-heading text-accent mb-2">⭐ Novidade: Suporte a Children!</h4>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              Esta caixa azul foi injetada customizadamente pelo usuário dentro do componente Hero SaaS através da prop <code>children</code> recém adicionada.
+            </p>
+          </div>
+        </Hero>
 
         <Features variant="cards" />
 

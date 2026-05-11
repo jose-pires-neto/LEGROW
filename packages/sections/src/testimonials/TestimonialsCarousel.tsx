@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "@legrow/core";
+import { cn, BaseSectionProps } from "@legrow/core";
 import { motion } from "framer-motion";
 import { slideUpVariants, staggerContainer } from "@legrow/animations";
 
@@ -9,10 +9,9 @@ export interface Testimonial {
   role: string;
 }
 
-export interface TestimonialsCarouselProps {
+export interface TestimonialsCarouselProps extends BaseSectionProps {
   title?: React.ReactNode;
   testimonials?: Testimonial[];
-  className?: string;
 }
 
 const defaultTestimonials: Testimonial[] = [
@@ -24,7 +23,8 @@ const defaultTestimonials: Testimonial[] = [
 export function TestimonialsCarousel({
   title = "O que dizem sobre nós",
   testimonials = defaultTestimonials,
-  className
+  className,
+  children
 }: TestimonialsCarouselProps) {
   return (
     <section className={cn("w-full py-section-md px-6 md:px-12 bg-gray-50 dark:bg-gray-900/50", className)}>
@@ -52,6 +52,7 @@ export function TestimonialsCarousel({
             </motion.div>
           ))}
         </motion.div>
+        {children}
       </div>
     </section>
   );

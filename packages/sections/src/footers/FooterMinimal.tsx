@@ -1,11 +1,10 @@
 import React from "react";
-import { cn } from "@legrow/core";
+import { cn, BaseSectionProps } from "@legrow/core";
 
-export interface FooterMinimalProps {
+export interface FooterMinimalProps extends BaseSectionProps {
   logo?: React.ReactNode;
   copyright?: string;
   links?: { label: string; href: string }[];
-  className?: string;
 }
 
 export function FooterMinimal({
@@ -16,7 +15,8 @@ export function FooterMinimal({
     { label: "Termos", href: "#" },
     { label: "Contato", href: "#" },
   ],
-  className
+  className,
+  children
 }: FooterMinimalProps) {
   return (
     <footer className={cn("w-full py-12 px-6 md:px-12 border-t border-gray-100 dark:border-gray-800", className)}>
@@ -30,6 +30,7 @@ export function FooterMinimal({
             </a>
           ))}
         </nav>
+        {children}
       </div>
     </footer>
   );
